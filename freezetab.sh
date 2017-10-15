@@ -3,10 +3,10 @@
 echo "Check before freezing (C), Freeze (F), Unfreeze (U), or Exit (X)" 
 read ans1
 
-if [[ $ans1 == [C,c] ]] ; then
+if [[ $ans1 == [Cc] ]] ; then
 	cat /tmp/frozen.fw
 	freezetab.sh
-elif [[ $ans1 == [F,f] ]] ; then
+elif [[ $ans1 == [Ff] ]] ; then
 		iptables-save > /tmp/frozen.fw
 		iptables -F
 		iptables -L
@@ -15,7 +15,7 @@ elif [[ $ans1 == [F,f] ]] ; then
 		echo "*** Iptables successfully FROZEN!!! ***"
 		echo
 		freezetab.sh
-elif [[ $ans1 == [U,u] ]] ; then
+elif [[ $ans1 == [Uu] ]] ; then
 	iptables-restore < /tmp/frozen.fw
 	iptables -L
 	echo
